@@ -32,12 +32,12 @@ pipeline {
 		}
 	    }
 	}
-	stage('Fi') {
+	stage('Deploy') {
 	 steps{
 		devEnv() 
 		}
 	    }
-	}
+	
 	
       }
 	}
