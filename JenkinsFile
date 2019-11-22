@@ -1,0 +1,153 @@
+@Library('jenkins-shared-library')_
+pipeline {
+    agent any
+    tools {
+        maven "Maven"   
+    }   
+  
+    stages {
+        stage('Compile-Build-Test ') {
+            steps {
+	    	slackNotify 'Building Started'
+                build 'BUILD'
+            }
+	    post{
+	    	success{
+			slackNotify 'Building SUCCESS'
+		}
+	    	failure{
+			jira 'BUILD STAGE FAILED','FRI-1'
+		}
+	    }
+        }
+        stage('SonarQube Analysis'){
+            steps{
+               sonar()
+            }
+	    post{
+	    	success{
+			slackNotify 'Sonar SUCCESS'
+		}
+	    	failure{
+			jira 'SONAR STAGE FAILED','FRI-2'
+		}
+	    }
+        }
+	stage('Security Scan'){
+		steps{
+			securityScan()
+		}
+		post{
+		success{
+			slackNotify 'Security Scan SUCCESS'
+		}
+	    	failure{
+			jira 'SECURITY SCAN STAGE FAILED','FRI-3'
+		}
+	    }
+	}
+	stage('Nexus') {
+	 steps{
+		nexus() 
+		}
+		post{
+		success{
+			slackNotify 'Nexus SUCCESS'
+		}
+	    	failure{
+			jira 'NEXUS STAGE FAILED','FRI-4'
+		}
+	    }
+	}
+	
+	stage ('Dev Environment')
+	{
+		steps{
+			devEnv()
+		}
+		post{
+		success{
+			slackNotify 'Dev Deploy SUCCESS'
+		}
+	    	failure{
+			jira 'DEV DEPLOY STAGE FAILED','FRI-5'
+		}
+	    }
+	
+	}
+	
+	stage('Functional Testing'){
+		steps{
+			funcTest()
+		}
+		post{
+		success{
+			slackNotify 'Functional Testing SUCCESS'
+		}
+	    	failure{
+			jira 'SECURITY SCAN STAGE FAILED','FRI-6'
+		}
+	    }
+	}
+		   
+	stage ('Test Environment')
+	{
+		steps{
+			testEnv()
+			approval()
+		}
+		post{
+		success{
+			slackNotify 'Test Deploy SUCCESS'
+		}
+	    	failure{
+			jira 'TEST DEPLOY STAGE FAILED','FRI-7'
+		}
+	    }
+	}
+	stage('Performance Testing')
+	{
+		steps
+		{
+			performance()
+		}
+		post{
+		success{
+			slackNotify 'Performance Testing SUCCESS'
+		}
+	    	failure{
+			jira 'PERFORMANCE TESTING DEPLOY STAGE FAILED','FRI-8'
+		}
+	    }
+	}
+	stage ('Performance Environment')
+	{
+		steps{
+			perfEnv()
+			approval()
+		}
+		post{
+		success{
+			slackNotify 'Performance Deploy SUCCESS'
+		}
+	    	failure{
+			jira 'PERFORMANCE DEPLOY STAGE FAILED','FRI-9'
+		}
+	    }
+	}
+	stage ('Production Environment')
+	{
+		steps{
+			prodEnv()
+		}
+		post{
+		success{
+			slackNotify 'Production Deploy SUCCESS'
+		}
+	    	failure{
+			jira 'PRODUCTION DEPLOY STAGE FAILED','FRI-10'
+		}
+	    }
+	}		
+      }
+	}

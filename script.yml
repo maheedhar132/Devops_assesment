@@ -1,0 +1,12 @@
+execution:
+  concurrency: 1
+  hold-for: 2m30s
+  ramp-up: 1m
+  scenario: Thread Group
+
+scenarios:
+  Thread Group:
+    requests:
+    - label: blazedemo
+      method: GET
+      url:http://13.233.153.114:8091/myWebApp_Test-1/
