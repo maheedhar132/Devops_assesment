@@ -8,26 +8,26 @@ pipeline {
     stages {
         stage('Compile-Build-Test ') {
             steps {
-	    	slackNotify 'Building Started'
+	    	//slackNotify 'Building Started'
                 build 'BUILD'
             }
-	    post{
+	 /*   post{
 	    	success{
 			slackNotify 'Building SUCCESS'
 		}
 	    	failure{
 			jira 'BUILD STAGE FAILED','FRI-1'
 		}
-	    }
+	    }*/
         }
         stage('SonarQube Analysis'){
             steps{
                sonar()
             }
 	    post{
-	    	success{
+	/*    	success{
 			slackNotify 'Sonar SUCCESS'
-		}
+		}*/
 	    	failure{
 			jira 'SONAR STAGE FAILED','FRI-2'
 		}
@@ -51,16 +51,16 @@ pipeline {
 		nexus() 
 		}
 		post{
-		success{
+		/*success{
 			slackNotify 'Nexus SUCCESS'
-		}
+		}*/
 	    	failure{
 			jira 'NEXUS STAGE FAILED','FRI-4'
 		}
 	    }
 	}
 	
-	stage ('Dev Environment')
+	/*stage ('Dev Environment')
 	{
 		steps{
 			devEnv()
@@ -148,6 +148,6 @@ pipeline {
 			jira 'PRODUCTION DEPLOY STAGE FAILED','FRI-10'
 		}
 	    }
-	}		
+	}	*/	
       }
 	}
