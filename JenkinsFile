@@ -38,9 +38,9 @@ pipeline {
 			securityScan()
 		}
 		post{
-		success{
+		/*success{
 			slackNotify 'Security Scan SUCCESS'
-		}
+		}*/
 	    	failure{
 			jira 'SECURITY SCAN STAGE FAILED','FRI-3'
 		}
