@@ -11,9 +11,10 @@ pipeline {
 	    	slacknotification '#faea0a'
                 build 'BUILD'
            	    }
-        	}	
-	post{
+		post{
 		success{slacknotification '#46f202'}
-		}	
+			}	
+            }	
+	
       }
      }
