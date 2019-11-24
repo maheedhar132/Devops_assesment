@@ -8,12 +8,10 @@ pipeline {
     stages {
         stage('Compile-Build-Test ') {
             steps {
-	    	slacknotification '#faea0a'
+	    	slacknotification()
                 build 'BUILD'
            	    }
-		post{
-		success{slacknotification '#46f202'}
-			}	
+			
             }	
 	
       }
