@@ -11,12 +11,6 @@ pipeline {
 	    	slacknotification()
                 build 'BUILD'
            	    }
-        	}
-		
-	  stage('Sonar Analysis') {
-            steps {
-	    		sonar()
-                    }
         	}	
       }
      }
