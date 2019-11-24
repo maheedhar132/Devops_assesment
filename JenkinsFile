@@ -1,4 +1,4 @@
-@Library('shlib')_
+@Library('shared-libraries')_
 pipeline {
     agent any
     tools {
@@ -8,36 +8,10 @@ pipeline {
     stages {
         stage('Compile-Build-Test ') {
             steps {
-	    	//slackNotify 'Building Started'
+	    	slackNotify 'Building Started'
                 build 'BUILD'
             }
 	
         }
-        stage('SonarQube Analysis'){
-            steps{
-               sonar()
-            }
-        }
-	
-	stage('Nexus') {
-	 steps{
-		nexus() 
-		}
-		post{
-		/*success{
-			slackNotify 'Nexus SUCCESS'
-		}*/
-	    	failure{
-			jira 'NEXUS STAGE FAILED','FRI-4'
-		}
-	    }
-	}
-	stage('Deploy') {
-	 steps{
-		devEnv() 
-		}
-	    }
-	
-	
       }
-	}
+     }
