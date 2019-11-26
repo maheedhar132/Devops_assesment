@@ -11,7 +11,10 @@ pipeline {
 	    	slacknotification 'Build Success'
                 build 'BUILD'
            	    }
-			
+		post
+		{
+		 failure { jira 'Failed in Build Stage'}
+		}
             }	
 	
       }
