@@ -1,10 +1,10 @@
 def call(body){
-curl --request POST \
-  --url 'https://jira132.atlassian.net/rest/api/3/issue' \
-  --user 'mahitalluri132@gmail.com:kL4PmIMRZiwyjQchOfg33905' \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --data ‘{
+sh '(curl --request POST \
+  --url '{https://jira132.atlassian.net/rest/api/3/issue}' \
+  --user '(mahitalluri132@gmail.com:kL4PmIMRZiwyjQchOfg33905)' \
+  --header '(Accept: application/json)' \
+  --header '(Content-Type: application/json)' \
+  --data '{
         "fields": {
         "summary": "Summit 2019 is awesome!",
         "issuetype": {
@@ -29,5 +29,5 @@ curl --request POST \
             ]
         }
     }
-}’
+}')'
 }
