@@ -4,8 +4,7 @@ sh '(curl --request POST \
   --user '(mahitalluri132@gmail.com:kL4PmIMRZiwyjQchOfg33905)' \
   --header '(Accept: application/json)' \
   --header '(Content-Type: application/json)' \
-  --data '{
-        "fields": {
+  --data '{'("fields": {
         "summary": "Summit 2019 is awesome!",
         "issuetype": {
             "id": "10303"
@@ -29,5 +28,5 @@ sh '(curl --request POST \
             ]
         }
     }
-}')'
+)'}')'
 }
