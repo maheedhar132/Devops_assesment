@@ -1,18 +1,13 @@
-@Library('library')_
+
 pipeline {
     agent any
    
     stages {
         stage('Compile-Build-Test ') {
             steps {
-	    	slacknotification 'Build Success'
-                build 'BUILD'
+	    	mvn clean install
            	    }
-		post
-		{
-		 failure { jira()
-		}
-            }	
+		
 	
       }
     }}
