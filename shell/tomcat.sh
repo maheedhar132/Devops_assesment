@@ -23,16 +23,16 @@ rm -rf apache-tomcat-8.5.49.tar.gz
 
 
 #changing the port for tomcat
-sudo sed -i "s/port=\"8080\"/port=\"8888\"/" /apache-tomcat-8.5.49/conf/server.xml
+sudo sed -i "s/port=\"8080\"/port=\"8888\"/" apache-tomcat-8.5.49/conf/server.xml
 
 
 #tomcat-users
- sed -i 's\</tomcat-users>\<!-- -->\g' /apache-tomcat-8.5.49/conf/tomcat-users.xml
- echo '<role rolename="manager-gui" />' >> /apache-tomcat-8.5.49/conf/tomcat-users.xml
- echo '<user username="admin" password="admin" roles="manager-gui" />' >> /apache-tomcat-8.5.49/conf/tomcat-users.xml
- echo '<role rolename="manager-script" />' >> /apache-tomcat-8.5.49/conf/tomcat-users.xml
- echo '<user username="script" password="script" roles="manager-script" />' >> /apache-tomcat-8.5.49/conf/tomcat-users.xml
- echo '</tomcat-users>' >> /apache-tomcat-8.5.49/conf/tomcat-users.xml
+ sed -i 's\</tomcat-users>\<!-- -->\g' apache-tomcat-8.5.49/conf/tomcat-users.xml
+ echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+ echo '<user username="admin" password="admin" roles="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+ echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+ echo '<user username="script" password="script" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+ echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 
 #setting valve in comments
