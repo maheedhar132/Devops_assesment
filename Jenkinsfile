@@ -6,7 +6,7 @@ pipeline {
         stage('Compile-Build-Test ') {
             steps {
 	    	sh 'mvn clean install'
-		    sh 'echo "$JENKINS_HOME/$WORKSPACE"'
+		    sh 'cp $WORKSPACE/target/$JOB_BASE_NAME-$BUILD_ID'
            	    }
 		
 	
