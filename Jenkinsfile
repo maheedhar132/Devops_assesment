@@ -6,7 +6,7 @@ pipeline {
         stage('Compile-Build-Test ') {
             steps {
 	    	sh 'mvn clean install'
-		    sh 'echo "$JENKINS_HOME"'
+		    sh 'echo "$JENKINS_HOME/$JOB_NAME"'
            	    }
 		
 	
