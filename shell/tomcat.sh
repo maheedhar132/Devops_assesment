@@ -2,7 +2,7 @@
 var=$(sudo find / -name "version.sh")
 if [[ -z "$var" ]];then
 sudo mkdir /home/ec2-user/apache
-cd /home/ec2-user/apache
+sudo cd /home/ec2-user/apache
 #download tomcat
 sudo yum install java
 
@@ -19,31 +19,36 @@ tar -xvzf apache-tomcat-8.5.49.tar.gz
 #delete tar file
 rm -rf apache-tomcat-8.5.49.tar.gz
 
+#copy to apache dir
+cp -avr $workspace/apache-tomcat-8.5.49.tar.gz /home/ec2-user/apache
+
+
+
 #changing the port for tomcat
-sed -i "s/port=\"8080\"/port=\"8888\"/" apache-tomcat-8.5.49/conf/server.xml
+sed -i "s/port=\"8080\"/port=\"8888\"/" home/ec2-user/apache/apache-tomcat-8.5.49/conf/server.xml
 
 
 #tomcat-users
-sed -i 's\</tomcat-users>\<!-- -->\g' apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<role rolename="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<user username="admin" password="admin" roles="manager-gui" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<role rolename="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '<user username="script" password="script" roles="manager-script" />' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
-echo '</tomcat-users>' >> apache-tomcat-8.5.49/conf/tomcat-users.xml
+sed -i 's\</tomcat-users>\<!-- -->\g' home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<role rolename="manager-gui" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<user username="admin" password="admin" roles="manager-gui" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<role rolename="manager-script" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '<user username="script" password="script" roles="manager-script" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+echo '</tomcat-users>' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 
 #setting valve in comments
 
-sed -i 's/<Valve /<!-- <Valve /' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sed -i 's/<Valve /<!-- <Valve /' home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
-sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sed -i 's\:1" />\:1" /> -->\g' home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
 #running tomcat
-apache-tomcat-8.5.49/bin/./startup.sh
+home/ec2-user/apache/apache-tomcat-8.5.49/bin/./startup.sh
 
 
 
 
-cp /$WORKSPACE/target/*.war /$WORKSPACE/apache-tomcat-8.5.49/webapps/
+cp /$WORKSPACE/target/*.war /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/
 
 fi
