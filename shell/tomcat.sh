@@ -44,6 +44,6 @@ apache-tomcat-8.5.49/bin/./startup.sh
 
 cd ..
 
-cp /$WORKSPACE/target/*.war /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/
+cp /$WORKSPACE/target/*.war /$WORKSPACE/apache-tomcat-8.5.49/webapps/
 
 fi
