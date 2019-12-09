@@ -6,13 +6,13 @@ pipeline {
         stage('Compile-Build-Test ') {
             steps {
 		
-		sh 'shell./maven.sh'
+		sh 'shell/./maven.sh'
 	    }
 	}
 	    stage('tomcat')
 	    {
 		    steps{
-		    sh 'shell./tomcat.sh'
+		    sh 'shell/./tomcat.sh'
 	    
 		    }
 	    }
