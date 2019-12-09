@@ -23,7 +23,7 @@ rm -rf apache-tomcat-8.5.49.tar.gz
 
 
 #changing the port for tomcat
-sudo sed -i "s/port=\"8080\"/port=\"8888\"/" apache-tomcat-8.5.49/conf/server.xml
+sudo sed -i "s/port="8080"/port="8765"/" apache-tomcat-8.5.49/conf/server.xml
 
 
 #tomcat-users
