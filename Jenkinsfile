@@ -11,6 +11,9 @@ pipeline {
 	}
 	    stage('tomcat')
 	    {
+		    steps{
 		    sh '/shell/./tomcat.sh'
+	    
+		    }
 	    }
     }}
