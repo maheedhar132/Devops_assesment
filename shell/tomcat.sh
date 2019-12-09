@@ -20,7 +20,8 @@ tar -xvzf apache-tomcat-8.5.49.tar.gz
 rm -rf apache-tomcat-8.5.49.tar.gz
 
 #copy to apache dir
-sudo cp -avr $workspace/apache-tomcat-8.5.49.tar.gz /home/ec2-user/apache
+sudo cp -avr $WORKSPACE/apache-tomcat-8.5.49 /home/ec2-user/apache
+sudo rm -rf $WORKSPACE/apache-tomcat-8.5.49/
 
 
 
