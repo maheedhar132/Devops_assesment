@@ -5,14 +5,14 @@ pipeline {
     stages {
         stage('Compile-Build-Test ') {
             steps {
-		sh 'cd /shell'
-		sh './maven.sh'
+		
+		sh 'shell./maven.sh'
 	    }
 	}
 	    stage('tomcat')
 	    {
 		    steps{
-		    sh './tomcat.sh'
+		    sh 'shell./tomcat.sh'
 	    
 		    }
 	    }
