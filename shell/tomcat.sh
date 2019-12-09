@@ -27,26 +27,26 @@ sudo rm -rf $WORKSPACE/apache-tomcat-8.5.49/
 
 
 #changing the port for tomcat
-sudo sed -i "s/port=\"8080\"/port=\"8888\"/" home/ec2-user/apache/apache-tomcat-8.5.49/conf/server.xml
+sudo sed -i "s/port=\"8080\"/port=\"8888\"/" /home/ec2-user/apache/apache-tomcat-8.5.49/conf/server.xml
 
 
 #tomcat-users
-sudo sed -i 's\</tomcat-users>\<!-- -->\g' home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
-sudo echo '<role rolename="manager-gui" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
-sudo echo '<user username="admin" password="admin" roles="manager-gui" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
-sudo echo '<role rolename="manager-script" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
-sudo echo '<user username="script" password="script" roles="manager-script" />' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
-sudo echo '</tomcat-users>' >> home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo sed -i 's\</tomcat-users>\<!-- -->\g' /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo echo '<role rolename="manager-gui" />' >> /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo echo '<user username="admin" password="admin" roles="manager-gui" />' >> /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo echo '<role rolename="manager-script" />' >> /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo echo '<user username="script" password="script" roles="manager-script" />' >> /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
+sudo echo '</tomcat-users>' >> /home/ec2-user/apache/apache-tomcat-8.5.49/conf/tomcat-users.xml
 
 
 #setting valve in comments
 
-sudo sed -i 's/<Valve /<!-- <Valve /' home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sudo sed -i 's/<Valve /<!-- <Valve /' /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
-sudo sed -i 's\:1" />\:1" /> -->\g' home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sudo sed -i 's\:1" />\:1" /> -->\g' /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
 #running tomcat
-sudo home/ec2-user/apache/apache-tomcat-8.5.49/bin/./startup.sh
+sudo /home/ec2-user/apache/apache-tomcat-8.5.49/bin/./startup.sh
 
 
 
