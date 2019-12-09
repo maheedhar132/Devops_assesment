@@ -37,9 +37,9 @@ sudo sed -i "s/port=\"8080\"/port=\"8888\"/" apache-tomcat-8.5.49/conf/server.xm
 
 #setting valve in comments
 
-sudo sed -i 's/<Valve /<!-- <Valve /' /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sudo sed -i 's/<Valve /<!-- <Valve /' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
-sudo sed -i 's\:1" />\:1" /> -->\g' /home/ec2-user/apache/apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
+sudo sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/context.xml
 
 #copy to apache dir
 sudo cp -avr $WORKSPACE/apache-tomcat-8.5.49 /home/ec2-user/apache
