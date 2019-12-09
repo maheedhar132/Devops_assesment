@@ -6,7 +6,7 @@ pipeline {
         stage('Compile-Build-Test ') {
             steps {
 	    	sh 'mvn clean install'
-		    sh 'echo "$WORKSPACE/target/$BUILD_TAG-$BUILD_ID"'
+		    sh 'cp $WORKSPACE/target/*.war /home/ec2-user/apache/apache-tomcat-8.5.49/webapps'
 		    sh 'echo "$ARTIFACTID"'
 
            	    }
