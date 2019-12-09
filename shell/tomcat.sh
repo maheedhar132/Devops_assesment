@@ -1,7 +1,7 @@
 #find tomcat
 var=$(sudo find / -name "version.sh")
 if [[ -z "$var" ]];then
-mkdir /home/ec2-user/apache
+sudo mkdir /home/ec2-user/apache
 cd /home/ec2-user/apache
 #download tomcat
 sudo yum install java
@@ -42,7 +42,7 @@ sed -i 's\:1" />\:1" /> -->\g' apache-tomcat-8.5.49/webapps/manager/META-INF/con
 apache-tomcat-8.5.49/bin/./startup.sh
 
 
-cd ..
+
 
 cp /$WORKSPACE/target/*.war /$WORKSPACE/apache-tomcat-8.5.49/webapps/
 
