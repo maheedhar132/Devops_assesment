@@ -11,7 +11,7 @@
 	<groupId>com.Test</groupId>
 	<artifactId>sample</artifactId>
 	<version>${BUILD_NUMBER}</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>TestSpring</name>
 	<description>Demo project for Spring Boot</description>
 
