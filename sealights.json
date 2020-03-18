@@ -18,8 +18,7 @@
   "logEnabled": true,
   "logDestination": "console",
   "logLevel": "warn",
-  "logFolder": "/home/ubuntu/tmp",
-  "filesStorage": "/home/ubuntu/tmp",
+  "logFolder": "/tmp",
   "sealightsJvmParams": {},
   "enabled": true
 }
