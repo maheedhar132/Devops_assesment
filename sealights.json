@@ -2,7 +2,7 @@
   "tokenFile": "/home/ubuntu/sltoken.txt",
   "buildSessionIdFile": "buildSessionId.txt",
   "createBuildSessionId": false,
-  "appName": "'${JOB_NAME}'",
+  "appName": /"'${JOB_NAME}'/",
   "branchName": "master",
   "buildName": "'${BUILD_NUMBER}'",
   "packagesIncluded": "*com.TestApp.*",
