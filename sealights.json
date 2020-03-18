@@ -1,5 +1,5 @@
 {
-  "tokenFile": "/home/ubuntu/sltoken.txt",
+  "tokenFile": "/home/ec2-user/sltoken.txt",
   "buildSessionIdFile": "buildSessionId.txt",
   "createBuildSessionId": false,
   "appName": "${JOB_NAME}",
