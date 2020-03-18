@@ -3,7 +3,7 @@
   "buildSessionIdFile": "buildSessionId.txt",
   "createBuildSessionId": false,
   "appName": "${JOB_NAME}",
-  "branchName": "${BRANCH_NAME}",
+  "branchName": "master",
   "buildName": "${BUILD_NUMBER}",
   "packagesIncluded": "*com.TestApp.*",
   "packagesExcluded": "",
