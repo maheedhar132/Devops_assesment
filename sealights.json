@@ -5,7 +5,7 @@
   "appName": "${JOB_NAME}",
   "branchName": "master",
   "buildName": "${BUILD_NUMBER}",
-  "packagesIncluded": "*com.TestApp.*",
+  "packagesIncluded": "*com.Test.*",
   "packagesExcluded": "",
   "filesIncluded": "*.class",
   "filesExcluded": "*test-classes*",
